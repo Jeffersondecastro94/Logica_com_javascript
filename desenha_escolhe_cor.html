@@ -1,0 +1,48 @@
+<canvas width="600" height="400"></canvas>
+selecione a cor <input type="color">
+
+<script>
+    var paleta = document.querySelector('input');//pega o input do html
+    var tela = document.querySelector('canvas');//pega a tela do html
+    var pincel = tela.getContext('2d');//cria o pincel para a tela 
+
+    pincel.fillStyle = 'grey';//cor da tela
+    pincel.fillRect(0, 0, 600, 400);//o quanto vai preencher da tela
+
+    var desenha = false;//faz parte do habilitar ou nao o desenhar
+
+    //funcao para desenhar , mas so ativa quando o "desenha" for true e ele vira true quando clicar pois tem outra funcao abaixo que ta sendo atribuida com true ao onclick down como 
+    function desenhaCirculo(evento) {
+
+        //
+        if(desenha) {
+            var x = evento.pageX - tela.offsetLeft;//PEGA A LOCALIZAÇAO ATUAL DO X
+            var y = evento.pageY - tela.offsetTop;//PEGA A LOCALIZACAO ATUAL DO Y
+            pincel.fillStyle = paleta.value; // sempre pega o valor atual da paleta, NO CASO A COR!
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);//DESENHA NA POSICAO XY UM CIRCULO COM AS PROPRIEDADES ESCOLHIDAS
+            pincel.fill();//PREENCHE O CIRCULO COM A COR ESCOLHIDA NO FILLSTYLE
+        }
+        console.log(x + ',' + y);
+    }
+
+/* ommousemove e onclickdown vao trabalhar juntos ao mover o mouse o onmousemove sera ativado
+mas so vai desenhar quando ouver o click, assim ativando o onclick down que dentro dele tem o "desenha"
+como true, ativando o if acima e executando o conteudo da funcao desenhaCirculo*/
+   
+tela.onmousemove = desenhaCirculo;
+                                //ATRIBUINDO AS FUNCOES ABAIXO A LOGICA BOLEANA ONDE CLICAR RECEBE TRUE E NAO CLICKAR RECEBE FALSE
+    // atribuindo diretamente a função anônima
+   //CLICAR
+    tela.onmousedown = function() {
+
+        desenha = true;
+    }
+    //PARAR DE CLICAR RECEBE FALSE
+    // atribuindo diretamente a função anônima
+     tela.onmouseup = function() {
+
+        desenha = false;
+    }
+
+</script>

@@ -1,0 +1,33 @@
+<canvas width="350" height="300"></canvas>
+
+<script>
+var cabeca=document.querySelector("canvas");
+var pincel = cabeca.getContext('2d');
+
+                                            //retangulos
+pincel.fillStyle = 'green';//define  a cor do pincel
+    pincel.fillRect(0, 0, 350, 300);//forma o retangulo nessas cordenadas
+
+                                                //olhos
+    pincel.fillStyle = 'black'; //para cada retangulo de uma cor so precisa de um fillstyle.
+    pincel.fillRect(40, 50, 90, 90);
+
+   // pincel.fillStyle = 'black';     //nao precisa repetir ja que estamos usando a cor preta ainda
+    pincel.fillRect(190, 50, 90, 90);//cada fillrect criado é um novo quadrado ou retangulo
+
+
+                                                //nariz
+   // pincel.fillStyle = 'black';
+    pincel.fillRect(125, 135, 70, 100);
+                                                 //boca
+  //  pincel.fillStyle = 'black';
+    pincel.fillRect(190, 200, 40, 100);
+
+   // pincel.fillStyle = 'black';
+    pincel.fillRect(85, 200, 40, 100);
+
+    /*os dois primeiros parametros sao para indicar apartir de que ponto 
+    vai começar o desenho no plano cartesiano.
+    os doi ultimos indicam o quanto vai avançar no eixo x e y o retangulo
+*/
+</script>

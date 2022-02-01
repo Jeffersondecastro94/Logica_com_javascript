@@ -1,0 +1,46 @@
+<!-- esquadro.html -->
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');//pega o canvas e atribui a tela, pois sera nossa tela
+    var pincel = tela.getContext('2d'); //cria um pincel para a tela sera usado nessa tela
+
+    pincel.fillStyle='black'; //cor do pincel
+
+    pincel.beginPath();// essas duas linhas definem onde o ponteiro da linha vai começar na tela
+    pincel.moveTo(50, 50);//  x é do canto superior esquerdo para a direita, Y do topo pra baixo
+
+    //traçando as linhas
+    pincel.lineTo(50, 400);
+    pincel.lineTo(400, 400);
+    pincel.fill();
+
+
+                        /* OBSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS*/
+
+            /* PARA CRIAR TRIANGULO NA VDD SO INDICAMOS OS PONTOS DE CADA ARESTA
+            NO PLANO X e Y, INDICANDO OS 3 PONTOS E USANDO O .FILL() ELE PREENCHE
+            A AREA DELIMITADA PELOS PONTOS. ASSIM FORMANDO A IMAGEM NO CASO TRIANGULO, mas pode ser outrasss imagens como o balao abaixo
+            OBSSS:o moveTo ja é o primeiro ponto, primeira aresta
+            */            
+    
+//EXEMPLO BALAO (sou foda)
+pincel.fillStyle='red';
+    pincel.beginPath();
+    pincel.moveTo(100, 100); //1ª PONTO (ARESTA)
+    pincel.lineTo(150, 150);//2ª  PONTO
+    pincel.lineTo(100, 200);//3ª PONTO
+    pincel.lineTo(50, 150);//4ª  PONTO
+    pincel.fill();
+
+
+    pincel.fillStyle='white';
+    pincel.beginPath();
+    pincel.moveTo(100, 175);
+    pincel.lineTo(100, 350);
+    pincel.lineTo(275, 350);
+    pincel.fill();
+
+</script>
